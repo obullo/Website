@@ -832,8 +832,11 @@ body .login-error {
 }
 /* line 273, ../sass/main.scss */
 body .login-success {
-  color: greenyellow;
-  border-color: greenyellow;
+  color: green;
+  border-color: green;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
 }
 @media (max-width: 768px) {
   /* line 280, ../sass/main.scss */

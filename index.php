@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(1);
+
 /**
  * Created by PhpStorm.
  * User: batuhancimen
@@ -7,19 +10,24 @@
  */
 include_once('database.php');
 
-
-if(isset($_POST['email'])){
+if (isset($_POST['email'])) {
     $errors = array();
-
     $email = trim($_POST['email']);
 
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if ( ! filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = 'The e-mail is not valid.';
     }
-    if(empty($errors)){
+    $db = new PDO('sqlite:database.sqlite3');
+    $stmt = $db->query("SELECT * FROM emails WHERE email = ".$db->quote($email));
+    $emails = $stmt->fetch();
+
+    if ($emails !== false) {
+        $errors[] =  'You are already subscribed with this email.';
+    }
+    if (empty($errors)) {
         $success = insert_data($email);
-        if($success){
-            $_SESSION['success'] = "Subscription is done.";
+        if ($success) {
+            $_SESSION['success'] = "Subscription is done. Thank you !";
         }
         header('Location : index.php');
     }
@@ -37,6 +45,24 @@ if(isset($_POST['email'])){
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon-16.ico">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/stylesheets/main.css">
@@ -59,7 +85,7 @@ if(isset($_POST['email'])){
 
     </div>
     <div class="row">
-        <h1 class="col-xs-12 divider" id="Coming"><span>We are coming!</span></h1>
+        <h1 class="col-xs-12 divider" id="Coming"><span>New version is coming !</span></h1>
         <div class="col-xs-12" id="loading-bar">
             <div class="obullo-progress-bar red">
                 <!--Each span increase %10 progress-->
@@ -91,14 +117,16 @@ if(isset($_POST['email'])){
     <div class="row" id="subscribe">
         <h1 class="col-xs-12 divider" id="Coming"><span>Subscribe!</span></h1>
         <?php
-            if(isset($errors) && !empty($errors)) {
-                echo '<div class="input-box-done"><h5 class="login-error sign-up-input">', implode('<h5 class="login-error sign-up-input"></h5>', $errors), '</h5></div>';
+            if (isset($errors) AND ! empty($errors)) {
+                echo '<center><h5 class="login-error sign-up-input">', implode('<h5 class="login-error sign-up-input"></h5>', $errors), '</h5></center>';
             }
-            if(isset($_SESSION['success'])){
-                echo '<div class="input-box-done"><h5 class="login-success login-error sign-up-input">', implode('<h5 class="login-success login-error sign-up-input"></h5>', $_SESSION['success']), '</h5></div>';
+            if (isset($_SESSION['success'])){
+                echo '<center><h5 class="login-success sign-up-input">', implode('<h5 class="login-success sign-up-input"></h5>', array($_SESSION['success'])), '</h5></center>';
             }
         ?>
-        <form action="">
+
+        <?php if ( ! isset($_SESSION['success'])) { ?>
+        <form action="index.php" method="POST">
             <div class="input-box-done">
                 <input name="email" type="text" placeholder="Your e-mail address" class="sign-up-input"/>
             </div>
@@ -106,6 +134,7 @@ if(isset($_POST['email'])){
                 <input type="submit" value="Subscribe!" class="btn btn-default btn-xecron"/>
             </div>
         </form>
+        <?php } ?>
     </div>
     <div class="row" id="twitter-section">
         <h1 class="col-xs-12 divider" id="Coming"><span>Follow <a href="https://twitter.com/obullo">@Obullo</a>  on Twitter</span></h1>
@@ -115,6 +144,11 @@ if(isset($_POST['email'])){
 </div>
 
 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -122,4 +156,3 @@ if(isset($_POST['email'])){
 <script src="js/main.js"></script>
 </body>
 </html>
-
