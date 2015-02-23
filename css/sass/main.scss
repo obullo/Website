@@ -1,0 +1,342 @@
+@import "normalize";
+
+body {
+  #Obullo-logo {
+    text-align: center;
+    img {
+      width: 350px;
+      padding: 15px;
+    }
+  }
+  #twitter-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .row {
+    margin-top: 20px;
+  }
+  #Obullo-title {
+    text-align: center;
+    h3 {
+      font-weight: 300;
+      opacity: 0.5;
+      color: #000000;
+    }
+  }
+  .divider {
+    border-top: 1px solid #CCC;
+    margin-bottom: 0;
+    margin-top: 24px;
+    text-align: center;
+    font-weight: 300;
+    font-style: normal;
+    span {
+      background: #FFF;
+      display: inline-block;
+      padding: 0 24px;
+      position: relative;
+      top: -24px;
+      a {
+        color: #E53528;
+      }
+    }
+  }
+  #Coming {
+    opacity: 0.8;
+    font-weight: 300;
+    font-style: italic;
+    color: #373737;
+    text-align: center;
+  }
+  #progress-info {
+    width: 650px;
+    padding: 5px;
+    margin: 0 auto;
+    position: relative;
+    font-weight: 200;
+    color: grey;
+    height: 290px;
+    .rotated {
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      transform: rotate(90deg);
+      position: absolute;
+      font-style: italic;
+      font-size: 20px;
+      left: 12px;
+      color: rgb(163, 163, 163);
+      div {
+        width: 100%;
+        position: relative;
+        margin-top: 13.5%;
+        left: -66%;
+        bottom: 195px;
+      }
+    }
+
+  }
+
+  #loading-bar {
+    .obullo-progress-bar {
+      background-color: grey;
+      height: 35px;
+      padding: 5px;
+      width: 650px;
+      margin: 0 auto;
+      border-radius: 5px;
+      box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+    }
+
+    .obullo-progress-bar span {
+      display: inline-block;
+      height: 100%;
+      border-radius: 3px;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+      transition: width .4s ease-in-out;
+      width: 9.45%;
+    }
+
+    .blue span {
+      background-color: #34c2e3;
+    }
+
+    .red span {
+      background-color: #E53528;
+      background-image: linear-gradient(top, #E53528, red);
+    }
+
+    .orange span {
+      background-color: #fecf23;
+      background-image: linear-gradient(top, #fecf23, #fd9215);
+    }
+
+    .green span {
+      background-color: #a5df41;
+      background-image: linear-gradient(top, #a5df41, #4ca916);
+    }
+
+    .stripes span {
+      background-size: 30px 30px;
+      background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+              transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+              transparent 75%, transparent);
+
+      animation: animate-stripes 3s linear infinite;
+    }
+
+    @keyframes animate-stripes {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 60px 0;
+      }
+    }
+
+    .shine span::after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      border-radius: 3px;
+      animation: animate-shine 2s ease-out infinite;
+    }
+
+    @keyframes animate-shine {
+      0% {
+        opacity: 0;
+        width: 0;
+      }
+      50% {
+        opacity: .5;
+      }
+      100% {
+        opacity: 0;
+        width: 95%;
+      }
+    }
+  }
+  #submit {
+    text-align: center;
+  }
+  //  My own Style
+  .input-box-done {
+    display: block;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition-property: all;
+    transition-duration: .2s;
+    -webkit-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    -moz-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    -ms-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    -o-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    -webkit-font-smoothing: antialiased;
+    textarea {
+      border: 0;
+      outline: none;
+      resize: none;
+    }
+    .sign-up-input {
+      text-align: center;
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      max-width: 570px;
+      margin: 0 auto;
+      padding-top: 5px;
+      padding-bottom: 0;
+      font-weight: 300;
+      border: 0;
+      font-size: 25px;
+      outline: 0;
+      background-color: rgba(44, 11, 11, 0.11);
+      padding-left: 10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      color: #000;
+      transition-property: color;
+      transition-duration: 5s;
+      -webkit-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+      -moz-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+      -ms-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+      -o-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+      transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    }
+    .sing-up-input:active {
+      color: #70d725;
+    }
+    label {
+      position: absolute;
+      right: 20px;
+      top: 0;
+      line-height: 80px;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #cacaca;
+      font-weight: 700;
+      opacity: 0;
+      transition-property: all;
+      transition-duration: .2s;
+      -webkit-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+      -moz-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+      -ms-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+      -o-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+      transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+  .btn-xecron {
+    color: #E53528;
+    font-weight: 500;
+    border: 2px solid #E53528;
+    text-shadow: none;
+    background-color: #FFF;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 30px;
+    display: inline-block;
+    padding-right: 43px;
+    padding-left: 43px;
+  }
+  .btn-xecron:hover {
+    background-color: #E53528;
+    color: #fff;
+    font-weight: 500;
+    border: 2px solid #E53528;
+    transition-property: all;
+    transition-duration: .5s;
+    -webkit-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    -moz-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    -ms-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    -o-transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    transition-timing-function: cubic-bezier(0.165, 0.630, 0.140, 0.820);
+    -webkit-font-smoothing: antialiased;
+  }
+  .login-error {
+    border-color: #ff0000;
+    color: red;
+    border: 0;
+    background: transparent;
+    font-size: 20px;
+  }
+  .login-success {
+    color: greenyellow;
+    border-color: greenyellow;
+  }
+
+  // Media Queries ----------------
+  @media (max-width: 768px) {
+      #progress-info {
+        width: 290px;
+        padding: 5px;
+        margin: 0 auto;
+        position: relative;
+        font-weight: 200;
+        color: grey;
+        height: 290px;
+        .rotated {
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          transform: rotate(90deg);
+          position: absolute;
+          font-style: italic;
+          font-size: 20px;
+          left: 12px;
+          color: rgb(163, 163, 163);
+          div {
+            width: 100%;
+            position: relative;
+            margin-top: 0;
+            left: 0;
+            bottom: 0;
+          }
+        }
+      }
+      #loading-bar {
+        .obullo-progress-bar {
+          background-color: grey;
+          height: 35px;
+          padding: 5px;
+          width: 290px;
+          margin: 0 auto;
+          border-radius: 5px;
+          box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+        }
+
+        .obullo-progress-bar span {
+          display: inline-block;
+          height: 100%;
+          border-radius: 3px;
+          box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+          transition: width .4s ease-in-out;
+          width: 8.7%;
+        }
+      }
+      .input-box-done {
+        .sign-up-input {
+          border-radius: 0;
+        }
+      }
+      #Obullo-logo {
+        img {
+          width: 270px;
+          padding: 15px;
+        }
+      }
+  }
+  // -----------
+
+}
