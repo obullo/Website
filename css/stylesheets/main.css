@@ -69,6 +69,8 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
+  position: relative;
+  min-height: 100%;
 }
 
 /**
@@ -90,6 +92,7 @@ textarea {
 /* line 91, ../sass/_normalize.scss */
 body {
   margin: 0;
+  margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
 /* ==========================================================================
@@ -548,6 +551,23 @@ table {
   border-spacing: 0;
 }
 
+/* unvisited link */
+body a:link {
+  color: #E53528;
+}
+/* visited link */
+body a:visited {
+  color: #E53528;
+}
+/* mouse over link */
+body a:hover {
+  color: #5B5B5B;
+}
+/* selected link */
+body a:active {
+  color: #E53528;
+}
+
 /* line 4, ../sass/main.scss */
 body #Obullo-logo {
   text-align: center;
@@ -566,6 +586,19 @@ body #twitter-section {
 body .row {
   margin-top: 20px;
 }
+body .centered {
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
 /* line 18, ../sass/main.scss */
 body #Obullo-title {
   text-align: center;
@@ -573,8 +606,16 @@ body #Obullo-title {
 /* line 20, ../sass/main.scss */
 body #Obullo-title h3 {
   font-weight: 300;
+  font-size: 20px;
   opacity: 0.5;
   color: #000000;
+}
+body #Package-title h3 {
+  font-weight: 300;
+  font-size: 16px;
+  opacity: 0.5;
+  color: #000000;
+  text-align: center;
 }
 /* line 26, ../sass/main.scss */
 body .divider {
@@ -715,14 +756,13 @@ body #loading-bar .shine span::after {
   }
 }
 /* line 165, ../sass/main.scss */
-body #submit {
-  text-align: center;
-}
+
 /* line 169, ../sass/main.scss */
 body .input-box-done {
+  text-align: center;
   display: block;
   position: relative;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   transition-property: all;
   transition-duration: .2s;

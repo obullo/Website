@@ -1,2 +1,4 @@
-# obullo.com
-Coming soon page
+
+# Obullo.com
+
+Static web content.
